@@ -874,16 +874,16 @@ JS;
             'element' => $source->getID()
         ));
 
-        $script = <<<JS
-            (function (element) {
-                var event = document.createEvent("HTMLEvents");
+$script = <<<JS
+(function (element) {
+    var event = document.createEvent("HTMLEvents");
 
-                event.initEvent("dragstart", true, true);
-                event.dataTransfer = {};
+    event.initEvent("dragstart", true, true);
+    event.dataTransfer = {};
 
-                element.dispatchEvent(event);
-            }({{ELEMENT}}));
-            JS;
+    element.dispatchEvent(event);
+}({{ELEMENT}}));
+JS;
                 
         $this->withSyn()->executeJsOnElement($source, $script);
 
@@ -892,54 +892,54 @@ JS;
             'element' => $destination->getID()
         ));
 
-        $script = <<<JS
-            (function (element) {
-                var event = document.createEvent("HTMLEvents");
+$script = <<<JS
+(function (element) {
+    var event = document.createEvent("HTMLEvents");
 
-                event.initEvent("dragenter", true, true);
-                event.dataTransfer = {};
+    event.initEvent("dragenter", true, true);
+    event.dataTransfer = {};
 
-                element.dispatchEvent(event);
-            }({{ELEMENT}}));
-            JS;
+    element.dispatchEvent(event);
+}({{ELEMENT}}));
+JS;
         $this->withSyn()->executeJsOnElement($destination, $script);
         
-        $script = <<<JS
-            (function (element) {
-                var event = document.createEvent("HTMLEvents");
+$script = <<<JS
+(function (element) {
+    var event = document.createEvent("HTMLEvents");
 
-                event.initEvent("dragover", true, true);
-                event.dataTransfer = {};
+    event.initEvent("dragover", true, true);
+    event.dataTransfer = {};
 
-                element.dispatchEvent(event);
-            }({{ELEMENT}}));
-            JS;
+    element.dispatchEvent(event);
+}({{ELEMENT}}));
+JS;
         $this->withSyn()->executeJsOnElement($destination, $script);
 		
         $this->wdSession->buttonup();
 
-        $script = <<<JS
-            (function (element) {
-                var event = document.createEvent("HTMLEvents");
+$script = <<<JS
+(function (element) {
+    var event = document.createEvent("HTMLEvents");
 
-                event.initEvent("dragend", true, true);
-                event.dataTransfer = {};
+    event.initEvent("dragend", true, true);
+    event.dataTransfer = {};
 
-                element.dispatchEvent(event);
-            }({{ELEMENT}}));
-            JS;
+    element.dispatchEvent(event);
+}({{ELEMENT}}));
+JS;
         $this->withSyn()->executeJsOnElement($source, $script);
 
-        $script = <<<JS
-            (function (element) {
-                var event = document.createEvent("HTMLEvents");
+$script = <<<JS
+(function (element) {
+    var event = document.createEvent("HTMLEvents");
 
-                event.initEvent("drop", true, true);
-                event.dataTransfer = {};
+    event.initEvent("drop", true, true);
+    event.dataTransfer = {};
 
-                element.dispatchEvent(event);
-            }({{ELEMENT}}));
-            JS;
+    element.dispatchEvent(event);
+}({{ELEMENT}}));
+JS;
         $this->withSyn()->executeJsOnElement($destination, $script);
     }
 
